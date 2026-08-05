@@ -30,14 +30,15 @@ env/
 # Chrome / Playwright
 # ==========================================
 
-chrome-profile/
+chrome-profile/*
+!chrome-profile/.gitkeep
 
 # ==========================================
 # Logs
 # ==========================================
 
-logs/
-*.log
+logs/*
+!logs/.gitkeep
 
 # ==========================================
 # Archivos del sistema

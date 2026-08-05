@@ -42,22 +42,24 @@ class WhatsAppSender:
             image = self.get_image(campaign)
 
             # Primero se adjunta la imagen. Al hacerlo, WhatsApp reemplaza
-            # el compose box original por el editor de imagen Si se escribe el mensaje antes de
-            # adjuntar, se pierde al abrirse el editor.
+            # el compose box original por el editor de imagen.
             self.attach_image(image)
+
             self.write_caption(message)
+
             self.send()
 
             print("\n✅ Campaña enviada correctamente. Cerrando...")
 
-            # Pequeña espera para asegurar que WhatsApp termine de procesar el envío 
-            self.page.wait_for_timeout(2000)
+            self.page.get_by_test_id(
+                "media-caption-input-container"
+            ).wait_for(
+                state="hidden",
+                timeout=30000
+            )
+            print("✅ El editor desapareció.")
+            self.page.wait_for_timeout(1000)
 
-        except Exception as e:
-            print("\n❌ ERROR")
-            print(e)
-
-            input("\nPresiona ENTER para cerrar el navegador...")
 
         finally:
             self.close()
@@ -78,7 +80,13 @@ class WhatsAppSender:
 
     def open_whatsapp(self):
         self.page.goto("https://web.whatsapp.com")
-        self.page.wait_for_load_state("networkidle")
+
+        self.page.get_by_placeholder(
+            "Buscar un chat o iniciar uno nuevo"
+        ).wait_for(
+            state="visible",
+            timeout=60000
+        )
 
     def find_chat(self):
         chat_name = (
@@ -92,8 +100,6 @@ class WhatsAppSender:
         search_box = self.page.get_by_placeholder(
             "Buscar un chat o iniciar uno nuevo"
         )
-
-        search_box.wait_for(state="visible")
 
         search_box.click()
         search_box.fill(chat_name)
@@ -219,23 +225,28 @@ class WhatsAppSender:
     def send(self):
         print("📤 Enviando mensaje...")
 
-        # El botón del editor de imagen tiene un aria-label que incluye
-        # "seleccionado" (ej. "Enviar 1 seleccionado"). Esto lo
-        # distingue del botón "Enviar" del compose box normal, que
-        # también sigue existiendo (oculto) en el DOM y generaría
-        # ambigüedad si se buscara solo por la palabra "Enviar".
         send_button = self.page.locator(
             '[role="button"][aria-label*="seleccionad"]'
         )
 
-        send_button.wait_for(state="visible")
-        send_button.click()
+        send_button.first.click()
 
         print("✅ Mensaje enviado.")
 
     def close(self):
-        if self.context:
-            self.context.close()
 
-        if self.playwright:
-            self.playwright.stop()
+        try:
+
+            if self.context:
+                self.context.close()
+
+        except Exception:
+            pass
+
+        try:
+
+            if self.playwright:
+                self.playwright.stop()
+
+        except Exception:
+            pass

@@ -1,5 +1,6 @@
 from sender import WhatsAppSender
 from scheduler import Scheduler
+from logger import Logger
 
 
 def main():
@@ -14,7 +15,22 @@ def main():
 
     sender = WhatsAppSender()
 
-    sender.start(campaign)
+    logger = Logger()
+
+    try:
+
+        sender.start(campaign)
+
+        logger.log_success(campaign)
+
+    except Exception as e:
+
+        logger.log_error(
+            campaign,
+            e
+        )
+
+        raise
 
 
 if __name__ == "__main__":
