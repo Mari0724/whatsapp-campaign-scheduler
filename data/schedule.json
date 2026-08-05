@@ -1,0 +1,80 @@
+[
+    {
+        "date": "2026-08-10",
+        "number": 0,
+        "image": "00-Portada-Mayores-Ciberseguros.png",
+        "template": "presentation"
+    },
+    {
+        "date": "2026-08-17",
+        "number": 1,
+        "image": "01-Pildora-Enlaces-Desconocidos.png",
+        "template": "weekly"
+    },
+    {
+        "date": "2026-08-24",
+        "number": 2,
+        "image": "02-Pildora-Llamadas-Sospechosas.png",
+        "template": "weekly"
+    },
+    {
+        "date": "2026-08-31",
+        "number": 3,
+        "image": "03-Pildora-Codigo-de-Verificacion.png",
+        "template": "weekly"
+    },
+    {
+        "date": "2026-09-07",
+        "number": 4,
+        "image": "04-Pildora-Familiar-Cambio-de-Numero.png",
+        "template": "weekly"
+    },
+    {
+        "date": "2026-09-14",
+        "number": 5,
+        "image": "05-Pildora-Premios-Falsos.png",
+        "template": "weekly"
+    },
+    {
+        "date": "2026-09-21",
+        "number": 6,
+        "image": "06-Pildora-Bancos-Falsos.png",
+        "template": "weekly"
+    },
+    {
+        "date": "2026-09-28",
+        "number": 7,
+        "image": "07-Pildora-Contrasenas-Seguras.png",
+        "template": "weekly"
+    },
+    {
+        "date": "2026-10-05",
+        "number": 8,
+        "image": "08-Pildora-Guarda-Contraseñas.png",
+        "template": "weekly"
+    },
+    {
+        "date": "2026-10-12",
+        "number": 9,
+        "image": "09-Pildora-Datos-Personales.png",
+        "template": "weekly"
+    },
+    {
+        "date": "2026-10-19",
+        "number": 10,
+        "image": "10-Pildora-Noticias-Falsas.png",
+        "template": "weekly"
+    },
+    {
+        "date": "2026-10-26",
+        "number": 11,
+        "image": "11-Pildora-Que-Hacer-Ante-una-Estafa.png",
+        "template": "weekly"
+    },
+    {
+        "date": "2026-11-02",
+        "number": 12,
+        "image": "12-Pildora-Consulta-Antes-de-Actuar.png",
+        "template": "farewell"
+    }
+]
