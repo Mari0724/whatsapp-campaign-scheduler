@@ -8,14 +8,14 @@ TEST_MODE = True
 # CHATS
 # ==========================================
 
-TEST_CHAT = "Mami >:3"
-PRODUCTION_CHAT = "Adultos Mayores MAIA"
+TEST_CHAT = "Chat de prueba"
+PRODUCTION_CHAT = "Chat de producción"
 
 # ==========================================
 # HORARIOS
 # ==========================================
 
-TEST_TIME = "14:00"
+TEST_TIME = "14:51"
 PRODUCTION_TIME = "10:00"
 
 # ==========================================
